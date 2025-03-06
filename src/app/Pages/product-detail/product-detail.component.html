@@ -1,0 +1,27 @@
+<div class="product-detail-container" *ngIf="product">
+  <img [src]="product.images[0]" alt="{{ product.title }}">
+  <h2>{{ product.title }}</h2>
+  <p>{{ product.description }}</p>
+  <p>Price: ${{ product.price }}</p>
+
+  <form [formGroup]="productForm">
+    <!-- Size Selection -->
+    <mat-form-field appearance="outline" *ngIf="product.sizes?.length">
+      <mat-label>Select Size</mat-label>
+      <mat-select formControlName="selectedSize">
+        <mat-option *ngFor="let size of product.sizes" [value]="size">{{ size }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- Color Selection -->
+    <mat-form-field appearance="outline" *ngIf="product.colors?.length">
+      <mat-label>Select Color</mat-label>
+      <mat-select formControlName="selectedColor">
+        <mat-option *ngFor="let color of product.colors" [value]="color">{{ color }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-button color="primary" (click)="addToCart()">Add to Cart</button>
+  </form>
+  
+</div>

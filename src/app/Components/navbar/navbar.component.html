@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>My E-Commerce</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Home</button>
+  
+
+  <button mat-button routerLink="/cart">
+    Cart <span *ngIf="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>
+  </button>
+
+  <button *ngIf="!authService.getToken()" mat-button routerLink="/login">Login</button>
+  <button *ngIf="authService.getToken()" mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
