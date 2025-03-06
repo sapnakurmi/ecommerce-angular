@@ -18,6 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ecommerce-app",
+       "baseHref": "/ecommerce-angular/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -49,7 +50,12 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "outputPath": "dist/ecommerce-app",
+    "baseHref": "/ecommerce-angular/",
+    "index": "src/index.html",
+    "main": "src/main.ts",
+    "polyfills": ["zone.js"]
             },
             "development": {
               "buildOptimizer": false,
