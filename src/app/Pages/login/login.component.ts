@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,22 +7,25 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  email = '';
-  password = '';
-  errorMessage = '';
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  hidePassword = true; 
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
-  login() {
-    this.authService.login(this.email, this.password).subscribe({
-      next: () => {
-        this.router.navigate(['/']); 
-      },
-      error: (err) => {
-        this.errorMessage = 'Invalid email or password';
-        console.error(err);
-      }
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  onLogin(): void {
+    if (this.loginForm.valid) {
+      console.log('Login Successful:', this.loginForm.value);
+      this.router.navigate(['/']); 
+    } else {
+      alert('Please enter valid email and password.');
+    }
   }
 }

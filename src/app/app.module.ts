@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderConfirmationComponent } from './Pages/order-confirmation/order-confirmation.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatFormFieldModule,
      FormsModule,
      MatSelectModule,
-     NgxPaginationModule 
+     NgxPaginationModule ,
+     MatIconModule,
+     
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
