@@ -6,15 +6,19 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   cartItemCount: number = 0;
-
-  constructor(public authService: AuthService, private cartService: CartService, private router: Router) {}
+  menuOpen: boolean = false;
+  constructor(
+    public authService: AuthService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.cartService.getCartCount().subscribe(count => {
+    this.cartService.getCartCount().subscribe((count) => {
       this.cartItemCount = count;
     });
   }
@@ -23,5 +27,7 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }
-  

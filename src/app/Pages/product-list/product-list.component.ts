@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   maxPrice: number | null = null;
   sortDirection: string = 'lowToHigh';
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 12;
 
   constructor(private productService: ProductService) {}
 
