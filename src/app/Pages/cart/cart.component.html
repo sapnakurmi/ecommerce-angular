@@ -2,10 +2,8 @@
   <h2 class="cart-title">Shopping Cart</h2>
 
   <div class="cart-content">
-
-     
+    <!-- Cart Items -->
     <div class="cart-items" *ngIf="cartItems.length > 0; else emptyCart">
-      
       <mat-card class="cart-item" *ngFor="let item of cartItems; let i = index">
         <img mat-card-image [src]="item.images[0]" alt="{{ item.title }}" class="cart-image" />
         <mat-card-actions class="cart-actions">
@@ -17,23 +15,22 @@
           <h3>{{ item.title }}</h3>
           <p class="price">Price: ${{ item.price }}</p>
         </mat-card-content>
-
-   
       </mat-card>
+    </div>
+
+    <!-- Cart Summary -->
     <div class="cart-summary">
       <h3>Cart Summary</h3>
       <p>Total Items: {{ cartItems.length }}</p>
       <p><strong>Total Price: ${{ getTotalPrice() }}</strong></p>
-
-      <button mat-raised-button color="" routerLink="/checkout" class="checkout-btn">
+      <button mat-raised-button color="primary" routerLink="/checkout" class="checkout-btn">
         Proceed to Checkout
       </button>
     </div>
   </div>
 </div>
-    </div>
 
-   
+<!-- Empty Cart -->
 <ng-template #emptyCart>
   <div class="empty-cart">
     <img src="https://static.vecteezy.com/system/resources/previews/016/462/240/non_2x/empty-shopping-cart-illustration-concept-on-white-background-vector.jpg"
