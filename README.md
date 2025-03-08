@@ -26,3 +26,6 @@ Follow these steps to run the project locally:
 ```sh
 git clone https://github.com/sapnakurmi/ecommerce-angular.git
 cd ecommerce-angular
+
+#### Live project link
+https://sapnakurmi.github.io/ecommerce-angular/
