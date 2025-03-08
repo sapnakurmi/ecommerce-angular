@@ -1,11 +1,10 @@
-/* Navbar Container */
+
 .navbar {
   display: flex;
   align-items: center;
   padding: 10px 20px;
 }
 
-/* Logo & Branding */
 .brand {
   display: flex;
   align-items: center;
@@ -24,18 +23,16 @@
   color: black;
 }
 
-/* Spacer for Alignment */
+
 .spacer {
   flex: 1;
 }
 
-/* Navigation Links */
 .nav-links button {
   font-weight: 500;
   text-transform: uppercase;
 }
 
-/* Cart Button */
 .cart-button {
   position: relative;
   margin-right: 15px;
@@ -56,12 +53,10 @@
   justify-content: center;
 }
 
-/* Responsive Menu Button */
 .menu-button {
   display: none;
 }
 
-/* Mobile View */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -70,4 +65,105 @@
   .menu-button {
     display: block;
   }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.nav-links button {
+  margin: 0 8px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.cart-button {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 18px;
+}
+
+.user-profile {
+  margin-left: 16px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.name{
+  font-size: 14px;
+  font-weight: 400;
 }

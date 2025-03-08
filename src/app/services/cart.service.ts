@@ -4,21 +4,21 @@ import { Product } from '../models/product';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   private cart: Product[] = [];
   private cartSubject = new BehaviorSubject<Product[]>([]);
-  cartItemCount = new BehaviorSubject<number>(0); // Track cart item count
+  cartItemCount = new BehaviorSubject<number>(0);
 
- constructor(private http: HttpClient) {
-    this.loadCartFromStorage(); // Load cart when service is initialized
+  constructor(private http: HttpClient) {
+    this.loadCartFromStorage();
   }
 
   private saveCartToStorage() {
     localStorage.setItem('cart', JSON.stringify(this.cart));
     this.cartSubject.next(this.cart);
-    this.cartItemCount.next(this.cart.length); // Update cart count
+    this.cartItemCount.next(this.cart.length);
   }
 
   private loadCartFromStorage() {
@@ -40,22 +40,23 @@ export class CartService {
 
   addToCart(product: Product) {
     this.cart.push(product);
-    this.saveCartToStorage(); // Save to Local Storage
+    this.saveCartToStorage();
   }
 
   removeFromCart(index: number) {
     this.cart.splice(index, 1);
-    this.saveCartToStorage(); // Update Local Storage
+    this.saveCartToStorage();
   }
 
   clearCart() {
     this.cart = [];
-    localStorage.removeItem('cart'); // Remove cart from Local Storage
+    localStorage.removeItem('cart');
     this.cartSubject.next(this.cart);
     this.cartItemCount.next(0);
   }
   updateCartItem(productId: number, quantity: number): Observable<any> {
-  return this.http.put(`https://api.escuelajs.co/api/v1/cart/${productId}`, { quantity });
-}
-
+    return this.http.put(`https://api.escuelajs.co/api/v1/cart/${productId}`, {
+      quantity,
+    });
+  }
 }

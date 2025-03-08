@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/product';
@@ -18,7 +18,8 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,11 +30,11 @@ export class ProductDetailComponent implements OnInit {
       this.product = data;
 
           if (!this.product.sizes || this.product.sizes.length === 0) {
-        this.product.sizes = ["S", "M", "L", "XL"]; // Default sizes
+        this.product.sizes = ["S", "M", "L", "XL"]; 
       }
 
       if (!this.product.colors || this.product.colors.length === 0) {
-        this.product.colors = ["Red", "Blue", "Black"]; // Default colors
+        this.product.colors = ["Red", "Blue", "Black"]; 
       }
 
       this.initializeForm();
@@ -49,7 +50,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart() {
-    this.formSubmitted = true; // Mark form as submitted
+    this.formSubmitted = true;
     if (this.productForm.valid) {
       const selectedOptions = {
         ...this.product,
@@ -57,7 +58,8 @@ export class ProductDetailComponent implements OnInit {
         selectedColor: this.productForm.value.selectedColor
       };
       this.cartService.addToCart(selectedOptions);
-      alert('Product added to cart with selected options!');
+   
+      this.router.navigate(['/cart']);
     }
   }
   

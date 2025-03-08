@@ -1,12 +1,11 @@
-<mat-toolbar  class="navbar">
-
+<mat-toolbar class="navbar">
   <button mat-icon-button class="menu-button" (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
   </button>
 
   <a routerLink="/" class="brand">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTonOQvb_AbqTFMwTbBfIldtFvPhXQBQsCmfw&s"
-     alt="Logo" class="logo" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTonOQvb_AbqTFMwTbBfIldtFvPhXQBQsCmfw&s" alt="Logo"
+      class="logo" />
     <span class="brand-name">My E-Commerce</span>
   </a>
 
@@ -14,18 +13,22 @@
 
   <div class="nav-links">
     <button mat-button routerLink="/">Home</button>
-    <button mat-button routerLink="/products">Products</button>
-    <button mat-button routerLink="/about">About</button>
+    <button *ngIf="!authService.getToken()" mat-button routerLink="/login">Login</button>
+    <button *ngIf="authService.getToken()" mat-button (click)="logout()">Logout</button>
   </div>
 
-  <!-- Cart & Authentication -->
   <div class="nav-actions">
     <button mat-icon-button routerLink="/cart" class="cart-button">
       <mat-icon>shopping_cart</mat-icon>
       <span *ngIf="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>
     </button>
 
-    <button *ngIf="!authService.getToken()" mat-button routerLink="/login">Login</button>
-    <button *ngIf="authService.getToken()" mat-button (click)="logout()">Logout</button>
+
+<div *ngIf="user" class="user-profile">
+  <img [src]="user.profileImage" alt="User Avatar" class="avatar">
+  <span class="name">{{ user.name }}</span>
+</div>
+
+    
   </div>
 </mat-toolbar>

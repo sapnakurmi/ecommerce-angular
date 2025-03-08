@@ -1,41 +1,37 @@
-<div class="login-page">
-  <!-- Left Side - Image -->
+<div class="login-container">
+
   <div class="login-image">
     <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg"
-    alt="Login Illustration">
+      alt="Login Illustration">
   </div>
 
-  <!-- Right Side - Login Form -->
-  <div class="login-container">
-    <mat-card class="login-card">
-      <mat-card-header>
-        <mat-card-title>Welcome Back!</mat-card-title>
-        <mat-card-subtitle>Sign in to continue</mat-card-subtitle>
-      </mat-card-header>
+  <div class="login-form">
+    <h2>Welcome Back!</h2>
+    <p>Sign in to continue</p>
 
-      <mat-card-content>
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-          <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" placeholder="Enter your email">
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+      </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Enter your password">
-            <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-          </mat-form-field>
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <input [type]="hidePassword ? 'password' : 'text'" id="password" formControlName="password"
+          placeholder="Enter password">
+        <span class="toggle-password" (click)="hidePassword = !hidePassword">
+          {{ hidePassword ? '👁️' : '🙈' }}
+        </span>
+      </div>
 
-          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
-            Login
-          </button>
-        </form>
-      </mat-card-content>
+      <div class="remember-forgot">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
 
-      <mat-card-actions align="end">
-        <a routerLink="/register">Create an Account</a>
-      </mat-card-actions>
-    </mat-card>
+      <button type="submit" class="login-btn" [disabled]="loginForm.invalid">Login</button>
+
+      <p class="register-text">Don't have an account? <a href="#">Sign up</a></p>
+    </form>
   </div>
 </div>

@@ -17,7 +17,20 @@ export class ProductListComponent implements OnInit {
   sortDirection: string = 'lowToHigh';
   currentPage: number = 1;
   itemsPerPage: number = 12;
-
+  offers = [  
+    { text: '🔥 30% Off on Summer Collection!' },
+    { text: '🛍️ Buy 1 Get 1 Free - Limited Time Offer!' },
+    { text: '🚚 Free Shipping on Orders Above $50!' }
+  ];
+  carouselOptions = {
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    dots: false,
+    nav: false,
+    items: 1,
+    animateOut: 'fadeOut'
+  };
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {

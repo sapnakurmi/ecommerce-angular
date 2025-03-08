@@ -12,10 +12,14 @@ button {
   button.mat-primary {
     background-color: #007bff;
     color: white;
+      
   }
   
   button.mat-warn {
     background-color: #dc3545;
     color: white;
   }
-  
+  .mat-mdc-raised-button.mat-primary{
+    height: 30px;
+    background-color:darkgrey  !important;
+  }

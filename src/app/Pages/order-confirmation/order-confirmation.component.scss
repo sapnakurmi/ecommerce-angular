@@ -6,4 +6,10 @@
   button {
     margin-top: 20px;
   }
-  
+  .mat-mdc-button:disabled{
+    background-color:darkgrey ;
+  }
+  .mat-mdc-button.mat-unthemed {
+    background-color:darkgrey ;
+    color: white;
+  }

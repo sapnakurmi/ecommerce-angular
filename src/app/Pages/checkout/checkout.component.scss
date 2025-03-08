@@ -12,4 +12,15 @@
   button {
     width: 100%;
   }
-  
+  .mat-mdc-raised-button.mat-primary{
+    height: 30px;
+    background-color:darkgrey  !important;
+  }
+
+  .mat-mdc-button:disabled{
+    background-color:darkgrey ;
+  }
+  .mat-mdc-button.mat-unthemed {
+    background-color:darkgrey ;
+    color: white;
+  }

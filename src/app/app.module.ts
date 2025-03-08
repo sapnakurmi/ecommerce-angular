@@ -25,7 +25,7 @@ import { OrderConfirmationComponent } from './Pages/order-confirmation/order-con
 import { MatSelectModule } from '@angular/material/select';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,11 +49,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
-     FormsModule,
-     MatSelectModule,
-     NgxPaginationModule ,
-     MatIconModule,
-     
+    FormsModule,
+    MatSelectModule,
+    NgxPaginationModule,
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
